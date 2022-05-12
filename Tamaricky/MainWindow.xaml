@@ -1,0 +1,63 @@
+﻿<Window x:Class="Tamaricky.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tamaricky"
+        mc:Ignorable="d"
+        Title="Tamaricky"
+        Height="640" 
+        Width="360" >
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="2"
+                Grid.ColumnSpan="2" 
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="30" >
+            
+            <Image Source="/Images/dummy.png" />
+        </Border>
+
+        <Button Background="#844eff"
+                x:Name="wash"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="3"
+                Style="{StaticResource ButtonTheme}" />
+        
+        <Button Background="#844eff"
+                x:Name="feed"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="3"
+                Style="{StaticResource ButtonTheme}" />
+        
+        <Button Background="#844eff"
+                x:Name="play"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="3"
+                Style="{StaticResource ButtonTheme}" />
+        
+        <Button Background="#844eff"
+                x:Name="Feed"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="3"
+                Style="{StaticResource ButtonTheme}" />
+    </Grid>
+</Window>
