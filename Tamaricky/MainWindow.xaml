@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamaricky"
+        xmlns:viewModel="clr-namespace:Tamaricky.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="Tamaricky"
         Height="640" 
-        Width="360" >
+        Width="360" 
+        Background="#272537">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,41 +29,115 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <!-- Draws Image on Top! -->
         <Border Grid.RowSpan="2"
                 Grid.ColumnSpan="2" 
-                BorderBrush="Black"
+                BorderBrush="White"
                 BorderThickness="1"
                 Margin="30" >
             
-            <Image Source="/Images/dummy.png" />
+            <Image x:Name="RickPicture"
+                   Source="{Binding ImageSource}" />
         </Border>
 
+        <!-- Status Bars! -->
+        <Grid Grid.Row="2"
+              Grid.ColumnSpan="2"
+              Margin="30" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <!-- Progress Bars! -->
+            <ProgressBar Value="80"
+                         Foreground="#844eff"
+                         Background="White" 
+                         BorderBrush="Black" />
+            
+            <TextBlock Text="health" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" 
+                       Margin="10 0 0 0" />
+
+            
+            <ProgressBar Value="80"
+                         Grid.Row="1"
+                         Foreground="#4e99ff"
+                         Background="White"
+                         BorderBrush="Black" />
+
+            <TextBlock Text="hunger" 
+                       Grid.Row="1"
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" 
+                       Margin="10 0 0 0" />
+
+            
+            <ProgressBar Value="80"
+                         Grid.Row="2"
+                         Foreground="#4eff91"
+                         Background="White"
+                         BorderBrush="Black" />
+            
+            <TextBlock Text="fun" 
+                       Grid.Row="2"
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" 
+                       Margin="10 0 0 0" />
+
+            
+            <ProgressBar Value="80"
+                         Grid.Row="3"
+                         Foreground="#ecff4e"
+                         Background="White"
+                         BorderBrush="Black" />
+            
+            <TextBlock Text="energy" 
+                       Grid.Row="3"
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" 
+                       Margin="10 0 0 0" />
+        </Grid>
+
+        <!-- Draws Buttons! -->
         <Button Background="#844eff"
-                x:Name="wash"
                 Margin="5"
                 Grid.Column="0"
                 Grid.Row="3"
-                Style="{StaticResource ButtonTheme}" />
-        
-        <Button Background="#844eff"
-                x:Name="feed"
+                Style="{StaticResource ButtonTheme}"
+                Content="health care" 
+                Command="{Binding ButtonClickCommand}"
+                CommandParameter="care" />
+
+        <Button Background="#4e99ff"
+                Margin="5"
+                Grid.Column="1"
+                Grid.Row="3"
+                Style="{StaticResource ButtonTheme}"
+                Content="feed"
+                Command="{Binding ButtonClickCommand}"
+                CommandParameter="feed" />
+
+        <Button Background="#4eff91"
                 Margin="5"
                 Grid.Column="0"
-                Grid.Row="3"
-                Style="{StaticResource ButtonTheme}" />
-        
-        <Button Background="#844eff"
-                x:Name="play"
+                Grid.Row="4"
+                Style="{StaticResource ButtonTheme}"
+                Content="play"
+                Command="{Binding ButtonClickCommand}"
+                CommandParameter="play" />
+
+        <Button Background="#ecff4e"
                 Margin="5"
-                Grid.Column="0"
-                Grid.Row="3"
-                Style="{StaticResource ButtonTheme}" />
-        
-        <Button Background="#844eff"
-                x:Name="Feed"
-                Margin="5"
-                Grid.Column="0"
-                Grid.Row="3"
-                Style="{StaticResource ButtonTheme}" />
+                Grid.Column="1"
+                Grid.Row="4"
+                Style="{StaticResource ButtonTheme}"
+                Content="sleep"
+                Command="{Binding ButtonClickCommand}"
+                CommandParameter="sleep" />
     </Grid>
 </Window>
