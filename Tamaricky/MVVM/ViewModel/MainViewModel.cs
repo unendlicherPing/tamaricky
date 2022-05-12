@@ -46,7 +46,17 @@ namespace Tamaricky.MVVM.ViewModel
 
         public RelayCommand ButtonClickCommand { get; set; }
 
-        public bool IsSleeping { get; set; }
+        private bool _isSleeping;
+
+        public bool IsSleeping {
+            get => _isSleeping;
+            set { 
+                _isSleeping = value;
+                OnPropertyChanged();
+                this.ButtonClickCommand.RaiseExecuteChanged();
+            }
+        }
+
 
         private string _imageSource;
 
