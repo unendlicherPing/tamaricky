@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tamaricky"
         xmlns:viewModel="clr-namespace:Tamaricky.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="Tamaricky"
         Height="640" 
         Width="360" 
-        Background="#272537">
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None" >
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -18,101 +18,139 @@
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="32"/>
+    </WindowChrome.WindowChrome>
 
-        <!-- Draws Image on Top! -->
-        <Border Grid.ColumnSpan="2"
+    <Border Background="#272537"
+            CornerRadius="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid VerticalAlignment="Top">
+                <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        WindowChrome.IsHitTestVisibleInChrome="True"
+                        Orientation="Horizontal"
+                        Grid.Row="0">
+
+                    <Button Height="32"
+                        Width="46"
+                        Background="Transparent"
+                        Name="CloseButton"
+                        BorderBrush="Transparent" 
+                        Foreground="Transparent"
+                        Style="{StaticResource CloseButtonTheme}">
+
+                        <Ellipse Height="10"
+                             Width="10">
+
+                            <Ellipse.Fill>
+                                <SolidColorBrush Color="Red"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- Draws Image on Top! -->
+                <Border Grid.ColumnSpan="2"
                 Grid.RowSpan="2"
                 BorderBrush="White"
                 BorderThickness="1"
                 Margin="30" >
 
-            <Image Source="{Binding MainModel.RickPicture}" />
-        </Border>
+                    <Image Source="{Binding MainModel.RickPicture}" />
+                </Border>
 
-        <Image Grid.Row="0"
+                <Image Grid.Row="0"
                Grid.Column="1"
                Source="/Images/zzzz.png" 
                Visibility="{Binding MainModel.IsSleeping, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-        <!-- Status Bars! -->
-        <Grid Grid.Row="2"
+                <!-- Status Bars! -->
+                <Grid Grid.Row="2"
               Grid.ColumnSpan="2"
               Margin="30" >
 
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-            <!-- Progress Bars! -->
-            <ProgressBar Value="{Binding MainModel.Health}"
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Progress Bars! -->
+                    <ProgressBar Value="{Binding MainModel.Health}"
                          Foreground="#844eff"
                          Background="White" 
                          BorderBrush="Black" />
 
-            <TextBlock Text="health" 
+                    <TextBlock Text="health" 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Center" 
                        Margin="10 0 0 0" />
 
 
-            <ProgressBar Value="{Binding MainModel.Hunger}"
+                    <ProgressBar Value="{Binding MainModel.Hunger}"
                          Grid.Row="1"
                          Foreground="#4e99ff"
                          Background="White"
                          BorderBrush="Black" />
 
-            <TextBlock Text="hunger" 
+                    <TextBlock Text="hunger" 
                        Grid.Row="1"
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Center" 
                        Margin="10 0 0 0" />
 
 
-            <ProgressBar Value="{Binding MainModel.Fun}"
+                    <ProgressBar Value="{Binding MainModel.Fun}"
                          Grid.Row="2"
                          Foreground="#4eff91"
                          Background="White"
                          BorderBrush="Black" />
 
-            <TextBlock Text="fun" 
+                    <TextBlock Text="fun" 
                        Grid.Row="2"
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Center" 
                        Margin="10 0 0 0" />
 
 
-            <ProgressBar Value="{Binding MainModel.Energy}"
+                    <ProgressBar Value="{Binding MainModel.Energy}"
                          Grid.Row="3"
                          Foreground="#ecff4e"
                          Background="White"
                          BorderBrush="Black" />
 
-            <TextBlock Text="energy" 
+                    <TextBlock Text="energy" 
                        Grid.Row="3"
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Center" 
                        Margin="10 0 0 0" />
-        </Grid>
+                </Grid>
 
-        <!-- Draws Buttons! -->
-        <Button Margin="5"
+                <!-- Draws Buttons! -->
+                <Button Margin="5"
                 Grid.Column="0"
                 Grid.Row="3"
                 Style="{StaticResource ButtonTheme}"
@@ -120,8 +158,8 @@
                 Content="health care" 
                 Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="care" />
-       
-        <Button Margin="5"
+
+                <Button Margin="5"
                 Grid.Column="1"
                 Grid.Row="3"
                 Style="{StaticResource ButtonTheme}"
@@ -130,7 +168,7 @@
                 Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="feed" />
 
-        <Button Margin="5"
+                <Button Margin="5"
                 Grid.Column="0"
                 Grid.Row="4"
                 Style="{StaticResource ButtonTheme}"
@@ -139,7 +177,7 @@
                 Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="play" />
 
-        <Button Margin="5"
+                <Button Margin="5"
                 Grid.Column="1"
                 Grid.Row="4"
                 Style="{StaticResource ButtonTheme}"
@@ -147,5 +185,9 @@
                 Content="sleep" 
                 Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="sleep" />
-    </Grid>
+            </Grid>
+
+        </Grid>
+    </Border>
+        
 </Window>

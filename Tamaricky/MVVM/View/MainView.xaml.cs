@@ -11,6 +11,7 @@ namespace Tamaricky
         public MainWindow()
         {
             InitializeComponent();
+            CloseButton.Click += (s, e) => { Close(); };
             this.DataContext = new MainViewModel();
         }
     }

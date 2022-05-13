@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Threading;
 using WPFCore.MVVM.Core;
+using Windows;
 
 namespace Tamaricky.MVVM.Model
 {
@@ -197,8 +198,6 @@ namespace Tamaricky.MVVM.Model
                 RaisePropertyChanged(); 
             }
         }
-
-
 
         // Commands
         private DelegateCommand _statChangeButtonCommand;

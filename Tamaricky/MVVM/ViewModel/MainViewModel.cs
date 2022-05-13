@@ -1,15 +1,10 @@
-﻿using System;
-using Tamaricky.MVVM.Model;
+﻿using Tamaricky.MVVM.Model;
 using WPFCore.MVVM.Core;
 
 namespace Tamaricky.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {
-        public MainViewModel()
-        {
-        }
-
         private MainModel _mainModel = new MainModel();
         public MainModel MainModel
         {
