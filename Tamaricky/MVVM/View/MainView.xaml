@@ -11,6 +11,10 @@
         Width="360" 
         Background="#272537">
 
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -30,15 +34,19 @@
         </Grid.RowDefinitions>
 
         <!-- Draws Image on Top! -->
-        <Border Grid.RowSpan="2"
-                Grid.ColumnSpan="2" 
+        <Border Grid.ColumnSpan="2"
+                Grid.RowSpan="2"
                 BorderBrush="White"
                 BorderThickness="1"
                 Margin="30" >
-            
-            <Image x:Name="RickPicture"
-                   Source="{Binding ImageSource}" />
+
+            <Image Source="{Binding MainModel.RickPicture}" />
         </Border>
+
+        <Image Grid.Row="0"
+               Grid.Column="1"
+               Source="/Images/zzzz.png" 
+               Visibility="{Binding MainModel.IsSleeping, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
         <!-- Status Bars! -->
         <Grid Grid.Row="2"
@@ -53,18 +61,18 @@
             </Grid.RowDefinitions>
             
             <!-- Progress Bars! -->
-            <ProgressBar Value="80"
+            <ProgressBar Value="{Binding MainModel.Health}"
                          Foreground="#844eff"
                          Background="White" 
                          BorderBrush="Black" />
-            
+
             <TextBlock Text="health" 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Center" 
                        Margin="10 0 0 0" />
 
-            
-            <ProgressBar Value="80"
+
+            <ProgressBar Value="{Binding MainModel.Hunger}"
                          Grid.Row="1"
                          Foreground="#4e99ff"
                          Background="White"
@@ -76,26 +84,26 @@
                        VerticalAlignment="Center" 
                        Margin="10 0 0 0" />
 
-            
-            <ProgressBar Value="80"
+
+            <ProgressBar Value="{Binding MainModel.Fun}"
                          Grid.Row="2"
                          Foreground="#4eff91"
                          Background="White"
                          BorderBrush="Black" />
-            
+
             <TextBlock Text="fun" 
                        Grid.Row="2"
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Center" 
                        Margin="10 0 0 0" />
 
-            
-            <ProgressBar Value="80"
+
+            <ProgressBar Value="{Binding MainModel.Energy}"
                          Grid.Row="3"
                          Foreground="#ecff4e"
                          Background="White"
                          BorderBrush="Black" />
-            
+
             <TextBlock Text="energy" 
                        Grid.Row="3"
                        HorizontalAlignment="Left" 
@@ -104,40 +112,40 @@
         </Grid>
 
         <!-- Draws Buttons! -->
-        <Button Background="#844eff"
-                Margin="5"
+        <Button Margin="5"
                 Grid.Column="0"
                 Grid.Row="3"
                 Style="{StaticResource ButtonTheme}"
+                Background="#844eff"
                 Content="health care" 
-                Command="{Binding ButtonClickCommand}"
+                Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="care" />
-
-        <Button Background="#4e99ff"
-                Margin="5"
+       
+        <Button Margin="5"
                 Grid.Column="1"
                 Grid.Row="3"
                 Style="{StaticResource ButtonTheme}"
-                Content="feed"
-                Command="{Binding ButtonClickCommand}"
+                Background="#4e99ff"
+                Content="feed" 
+                Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="feed" />
 
-        <Button Background="#4eff91"
-                Margin="5"
+        <Button Margin="5"
                 Grid.Column="0"
                 Grid.Row="4"
                 Style="{StaticResource ButtonTheme}"
-                Content="play"
-                Command="{Binding ButtonClickCommand}"
+                Background="#4eff91"
+                Content="play" 
+                Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="play" />
 
-        <Button Background="#ecff4e"
-                Margin="5"
+        <Button Margin="5"
                 Grid.Column="1"
                 Grid.Row="4"
                 Style="{StaticResource ButtonTheme}"
-                Content="sleep"
-                Command="{Binding ButtonClickCommand}"
+                Background="#ecff4e"
+                Content="sleep" 
+                Command="{Binding MainModel.StatChangeButtonCommand}"
                 CommandParameter="sleep" />
     </Grid>
 </Window>

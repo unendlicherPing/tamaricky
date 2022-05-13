@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamaricky", "Tamaricky\Tamaricky.csproj", "{C166AD04-7C3E-41BD-8615-27FA8085F4A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCore", "WPFCore\WPFCore.csproj", "{E4C89026-E070-432B-B1DD-D80CF331C5DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C166AD04-7C3E-41BD-8615-27FA8085F4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C166AD04-7C3E-41BD-8615-27FA8085F4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C166AD04-7C3E-41BD-8615-27FA8085F4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C89026-E070-432B-B1DD-D80CF331C5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C89026-E070-432B-B1DD-D80CF331C5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C89026-E070-432B-B1DD-D80CF331C5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C89026-E070-432B-B1DD-D80CF331C5DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace tamaricky.Core
+namespace WPFCore.MVVM.Core
 {
-    class RelayCommand : ICommand
+    public class DelegateCommand : ICommand
     {
         private Action<object> _execute;
         private Predicate<object> _canExecute;
 
-        public RelayCommand(Predicate<object> canExecute, Action<object> execute) =>
+        public DelegateCommand(Predicate<object> canExecute, Action<object> execute) =>
             (_canExecute, _execute) = (canExecute, execute);
 
-        public RelayCommand(Action<object> execute) : this(null, execute) { }
+        public DelegateCommand(Action<object> execute) : this(null, execute) { }
 
         public event EventHandler CanExecuteChanged;
         public void RaiseExecuteChanged() => this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
