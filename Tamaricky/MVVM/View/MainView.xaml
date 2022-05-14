@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:Tamaricky.MVVM.ViewModel"
+        xmlns:converters="clr-namespace:Tamaricky.Converters"
         mc:Ignorable="d"
         Height="640" 
         Width="360" 
@@ -12,7 +13,8 @@
         WindowStyle="None" >
 
     <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
     </Window.Resources>
 
     <Window.DataContext>
@@ -151,13 +153,14 @@
 
                 <!-- Draws Buttons! -->
                 <Button Margin="5"
-                Grid.Column="0"
-                Grid.Row="3"
-                Style="{StaticResource ButtonTheme}"
-                Background="#844eff"
-                Content="health care" 
-                Command="{Binding MainModel.StatChangeButtonCommand}"
-                CommandParameter="care" />
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        Style="{StaticResource ButtonTheme}"
+                        Background="#844eff"
+                        Content="health care" 
+                        Command="{Binding MainModel.StatChangeButtonCommand}"
+                        IsEnabled="{Binding MainModel.IsSleeping , Converter={StaticResource InverseBooleanConverter}}"
+                        CommandParameter="care" />
 
                 <Button Margin="5"
                 Grid.Column="1"
@@ -166,6 +169,7 @@
                 Background="#4e99ff"
                 Content="feed" 
                 Command="{Binding MainModel.StatChangeButtonCommand}"
+                IsEnabled="{Binding MainModel.IsSleeping , Converter={StaticResource InverseBooleanConverter}}"
                 CommandParameter="feed" />
 
                 <Button Margin="5"
@@ -175,6 +179,7 @@
                 Background="#4eff91"
                 Content="play" 
                 Command="{Binding MainModel.StatChangeButtonCommand}"
+                IsEnabled="{Binding MainModel.IsSleeping , Converter={StaticResource InverseBooleanConverter}}"
                 CommandParameter="play" />
 
                 <Button Margin="5"

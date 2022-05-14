@@ -60,7 +60,7 @@ namespace Tamaricky.MVVM.Model
             Energy = 100;
             Age    =   0;
 
-            RickPicture = "/Images/dummy.png";
+            RickPicture = "/Resources/Images/dummy.png";
             updateRickPicture();
 
             IsSleeping = false;
@@ -122,7 +122,7 @@ namespace Tamaricky.MVVM.Model
                 age = 50;
             else age = 54;
 
-            RickPicture = $"/Images/age{age}.png";
+            RickPicture = $"/Resources/Images/age{age}.png";
         }
 
         // Fields

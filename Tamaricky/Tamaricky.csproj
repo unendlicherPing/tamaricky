@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -151,7 +152,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\dummy.png" />
+    <Resource Include="Resources\Images\dummy.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WPFCore\WPFCore.csproj">
@@ -166,17 +167,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="Resources\Sounds\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\zzzz.png" />
+    <Resource Include="Resources\Images\zzzz.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\age0.png" />
-    <Resource Include="Images\age16.png" />
-    <Resource Include="Images\age25.png" />
-    <Resource Include="Images\age40.png" />
-    <Resource Include="Images\age50.png" />
-    <Resource Include="Images\age54.png" />
+    <Resource Include="Resources\Images\age0.png" />
+    <Resource Include="Resources\Images\age16.png" />
+    <Resource Include="Resources\Images\age25.png" />
+    <Resource Include="Resources\Images\age40.png" />
+    <Resource Include="Resources\Images\age50.png" />
+    <Resource Include="Resources\Images\age54.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
